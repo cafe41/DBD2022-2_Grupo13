@@ -1,7 +1,6 @@
 package DEBEDE.repositories;
 
 import DEBEDE.models.Boleta;
-import cl.DBD.ejemplo.models.Boleta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -19,13 +18,13 @@ public class BoletaRepositoryImp implements BoletaRepository{
             String sql = "INSERT INTO Boleta (id_boleta,tipo_tarjeta,numero_tarjeta,monto,fecha,id_usuario,id_empresa)" +
                     "VALUES (id_boleta, :tipo_tarjeta, :numero_tarjeta, :monto, fecha, id_usuario, id_empresa)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("id_boleta", Boleta.getId_boleta())
+                    .addColumnMapping("id_boleta", Boleta.getId_boleta().toString())
                     .addParameter("tipo_tarjeta", Boleta.getTipo_tarjeta())
                     .addParameter("numero_tarjeta", Boleta.getNumero_tarjeta())
                     .addParameter("monto", Boleta.getMonto())
-                    .addColumnMapping("fecha", Boleta.getFecha())
-                    .addColumnMapping("id_usuario", Boleta.getId_usuario())
-                    .addColumnMapping("id_empresa", Boleta.getId_empresa())
+                    .addColumnMapping("fecha", Boleta.getFecha().toString())
+                    .addColumnMapping("id_usuario", Boleta.getId_usuario().toString())
+                    .addColumnMapping("id_empresa", Boleta.getId_empresa().toString())
                     .executeUpdate();
             return Boleta;
         } catch (Exception e) {

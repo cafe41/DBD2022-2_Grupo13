@@ -3,7 +3,7 @@ package DEBEDE.models;
 import java.util.Date;
 
 public class Boleta {
-    private String id_boleta;
+    private Integer id_boleta;
     private String tipo_tarjeta;
     private String numero_tarjeta;
     private Integer monto;
@@ -14,7 +14,7 @@ public class Boleta {
     // Constructor
 
 
-    public Boleta(String id_boleta, String tipo_tarjeta, String numero_tarjeta, Integer monto, Date fecha, Integer id_usuario, Integer id_empresa) {
+    public Boleta(Integer id_boleta, String tipo_tarjeta, String numero_tarjeta, Integer monto, Date fecha, Integer id_usuario, Integer id_empresa) {
         this.id_boleta = id_boleta;
         this.tipo_tarjeta = tipo_tarjeta;
         this.numero_tarjeta = numero_tarjeta;
@@ -24,11 +24,11 @@ public class Boleta {
         this.id_empresa = id_empresa;
     }
 
-    public String getId_boleta() {
+    public Integer getId_boleta() {
         return id_boleta;
     }
 
-    public void setId_boleta(String id_boleta) {
+    public void setId_boleta(Integer id_boleta) {
         this.id_boleta = id_boleta;
     }
 
