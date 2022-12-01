@@ -1,60 +1,78 @@
 package DEBEDE.models;
 
+import javax.swing.text.StyleContext;
+
 public class Producto {
-    private String id;
-    private String nombre;
-    private int precio;
-    private String fecha_vencimiento;
-    private int categoria;
+    private Integer ID_Producto;
+    private String Nombre_Producto;
+    private Integer Stock;
+    private Integer EsExplicito;
+    private String Descripcion;
+    private String Link_pagina;
+    private String Imagen_producto;
+    private Integer ID_Empresa;
 
     // Constructor
-    public Producto(String id, String nombre, int precio, String fecha_vencimiento, int categoria) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.fecha_vencimiento = fecha_vencimiento;
-        this.categoria = categoria;
+    public Producto(Integer ID_Producto, String nombre_Producto, Integer stock, Integer esExplicito, String descripcion, String link_pagina, String imagen_producto, Integer ID_Empresa) {
+        this.ID_Producto = ID_Producto;
+        Nombre_Producto = nombre_Producto;
+        Stock = stock;
+        EsExplicito = esExplicito;
+        Descripcion = descripcion;
+        Link_pagina = link_pagina;
+        Imagen_producto = imagen_producto;
+        this.ID_Empresa = ID_Empresa;
     }
 
     // Getters
-    public String getId_producto() {
-        return id;
+    public Integer getID_Producto() {
+        return ID_Producto;
     }
-
-    public String getNombre_producto() {
-        return nombre;
+    public String getNombre_Producto() {
+        return Nombre_Producto;
     }
-
-    public int getPrecio() {
-        return precio;
+    public Integer getStock() {
+        return Stock;
     }
-
-    public String getFvencimiento() {
-        return fecha_vencimiento;
+    public Integer getEsExplicito() {
+        return EsExplicito;
     }
-
-    public int getCategoria() {
-        return categoria;
+    public String getDescripcion() {
+        return Descripcion;
+    }
+    public String getLink_pagina() {
+        return Link_pagina;
+    }
+    public String getImagen_producto() {
+        return Imagen_producto;
+    }
+    public Integer getID_Empresa() {
+        return ID_Empresa;
     }
 
     // Setters
-    public void setId_producto(String id) {
-        this.id = id;
+    public void setID_Producto(Integer ID_Producto) {
+        this.ID_Producto = ID_Producto;
     }
-
-    public void setNombre_producto(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_Producto(String nombre_Producto) {
+        Nombre_Producto = nombre_Producto;
     }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setStock(Integer stock) {
+        Stock = stock;
     }
-
-    public void setFvencimiento(String fecha_vencimiento) {
-        this.fecha_vencimiento = fecha_vencimiento;
+    public void setEsExplicito(Integer esExplicito) {
+        EsExplicito = esExplicito;
     }
-
-    public void setCategoria(int categoria) {
-        this.categoria = categoria;
+    public void setDescripcion(String descripcion) {
+        Descripcion = descripcion;
+    }
+    public void setLink_pagina(String link_pagina) {
+        Link_pagina = link_pagina;
+    }
+    public void setImagen_producto(String imagen_producto) {
+        Imagen_producto = imagen_producto;
+    }
+    public void setID_Empresa(Integer ID_Empresa) {
+        this.ID_Empresa = ID_Empresa;
     }
 }

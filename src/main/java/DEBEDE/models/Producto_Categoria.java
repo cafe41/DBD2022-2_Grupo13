@@ -6,7 +6,6 @@ public class Producto_Categoria {
     private Integer ID_Categoria;
 
     //Constructor
-
     public Producto_Categoria(Integer ID_Producto_Categoria, Integer ID_Producto, Integer ID_Categoria) {
         this.ID_Producto_Categoria = ID_Producto_Categoria;
         this.ID_Producto = ID_Producto;

@@ -29,8 +29,7 @@ public class ProductoService {
     @PostMapping("/producto")
     @ResponseBody
     public Producto crear(@RequestBody Producto producto){
-        Producto resultado = productoRepository.crear(producto);
-        return resultado;
+        return productoRepository.crear(producto);
     }
     
 
@@ -40,10 +39,9 @@ public class ProductoService {
     public List<Producto> getAllProductos(){
         return productoRepository.getAll();
     }
-    //miercoles enero 2022
-    @GetMapping("/producto/{id}")
-    public List<Producto> getProducto(@PathVariable String id){
-        return productoRepository.show(id);
+    @GetMapping("/producto/{ID_Producto}")
+    public List<Producto> getProducto(@PathVariable Integer ID_Producto){
+        return productoRepository.show(ID_Producto.toString());
     }
 
     @GetMapping("/producto/precioMaximo/{precio}")
@@ -51,23 +49,22 @@ public class ProductoService {
         return productoRepository.showLessThan(precio);
     }
 
-    @GetMapping("/producto/categoria/{categoria}")
-    public List<Producto> getProductoByCategorie(@PathVariable int categoria){
-        return productoRepository.showByCategorie(categoria);
+    @GetMapping("/producto/{ID_Empresa}")
+    public List<Producto> getProductoByID_Empresa(@PathVariable int ID_Empresa){
+        return productoRepository.showByID_Empresa(ID_Empresa);
     }
     
 
     // actualizar U
-    @PutMapping("/producto/{id}")
+    @PutMapping("/producto/{ID_Producto}")
     @ResponseBody
-    public String updateProducto(@RequestBody Producto producto, @PathVariable String id){
-        String retorno = productoRepository.update(producto,id);
-        return retorno;
+    public String updateProducto(@RequestBody Producto producto, @PathVariable Integer ID_Producto){
+        return productoRepository.update(producto,ID_Producto.toString());
     }
     
     // borrar D
-    @DeleteMapping("/producto/{id}")
-    public void borrar(@PathVariable String id){
-        productoRepository.delete(id);
+    @DeleteMapping("/producto/{ID_Producto}")
+    public void borrar(@PathVariable int ID_Producto){
+        productoRepository.delete(ID_Producto);
     }
 }

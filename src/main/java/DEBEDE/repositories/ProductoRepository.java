@@ -65,11 +65,11 @@ public interface ProductoRepository {
     * Lista un producto con una categoria especifica de la base de datos.
     * Si la conexion falla o si no encuentra el id lanzará excepción.
     *
-    * @param categoria del producto que se desea mostrar.
+    * @param ID_Empresa del producto que se desea mostrar.
     * @return retorna una lista de Producto que contiene el producto con la categoria solicitada o null si se lanza excepcion.
     * @throws Exception Si la conexion falla o si no encuentra el id.
     */
-    public List<Producto> showByCategorie(int categoria);
+    public List<Producto> showByID_Empresa(int ID_Empresa);
 
 
 
@@ -77,8 +77,8 @@ public interface ProductoRepository {
     * Elimina un producto de la base de datos por su id.
     * Si la conexion falla o si no encuentra el id lanzará excepción.
     *
-    * @param id identificador del producto que se desea eliminar.
+    * @param ID_Producto identificador del producto que se desea eliminar.
     * @throws Exception Si la conexion falla o si no encuentra el id.
     */
-    public void delete(String id);
+    public void delete(int ID_Producto);
 }

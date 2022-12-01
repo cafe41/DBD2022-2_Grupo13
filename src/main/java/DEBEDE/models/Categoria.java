@@ -1,4 +1,3 @@
-
 package DEBEDE.models;
 
 public class Categoria {
