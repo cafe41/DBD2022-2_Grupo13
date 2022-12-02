@@ -22,11 +22,11 @@ public interface CategoriaRepository {
     * una excepción, si la conexion falla o si no encuentra el id.
     *
     * @param Categoria objeto de la clase Categoria que tiene los atributos correspondientes a insertar en un Categoria.
-    * @param id string alfanumerico correspondiente al id del Categoria al cual se desea insertar datos.
+    * @param ID_Categoria string alfanumerico correspondiente al id del Categoria al cual se desea insertar datos.
     * @return retorna un string que indica el exito de la actualización de los datos.
     * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
     */
-    public String update(Categoria Categoria, String id);
+    public String update(Categoria Categoria, Integer ID_Categoria);
 
 
     /**
@@ -43,11 +43,11 @@ public interface CategoriaRepository {
     * Lista un Categoria con un id especifico de la base de datos.
     * Si la conexion falla o si no encuentra el id lanzará excepción.
     *
-    * @param id identificador del Categoria que se desea mostrar.
+    * @param ID_Categoria identificador del Categoria que se desea mostrar.
     * @return retorna una lista de Categoria que contiene el Categoria con el id solicitado o null si se lanza excepcion.
     * @throws Exception Si la conexion falla o si no encuentra el id.
     */
-    public List<Categoria> show(String id);
+    public List<Categoria> show(Integer ID_Categoria);
 
 
 
@@ -55,8 +55,8 @@ public interface CategoriaRepository {
     * Elimina un Categoria de la base de datos por su id.
     * Si la conexion falla o si no encuentra el id lanzará excepción.
     *
-    * @param id identificador del Categoria que se desea eliminar.
+    * @param ID_Categoria identificador del Categoria que se desea eliminar.
     * @throws Exception Si la conexion falla o si no encuentra el id.
     */
-    public void delete(String id);
+    public void delete(Integer ID_Categoria);
 }

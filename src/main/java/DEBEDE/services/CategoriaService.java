@@ -29,8 +29,7 @@ public class CategoriaService {
     @PostMapping("/Categoria")
     @ResponseBody
     public Categoria crear(@RequestBody Categoria Categoria){
-        Categoria resultado = CategoriaRepository.crear(Categoria);
-        return resultado;
+        return CategoriaRepository.crear(Categoria);
     }
     
 
@@ -41,24 +40,23 @@ public class CategoriaService {
         return CategoriaRepository.getAll();
     }
     //get by
-    @GetMapping("/Categoria/{id}")
-    public List<Categoria> getCategoria(@PathVariable String id){
-        return CategoriaRepository.show(id);
+    @GetMapping("/Categoria/{ID_Categoria}")
+    public List<Categoria> getCategoria(@PathVariable Integer ID_Categoria){
+        return CategoriaRepository.show(ID_Categoria);
     }
 
 
 
     // actualizar U
-    @PutMapping("/Categoria/{id}")
+    @PutMapping("/Categoria/{ID_Categoria}")
     @ResponseBody
-    public String updateCategoria(@RequestBody Categoria Categoria, @PathVariable String id){
-        String retorno = CategoriaRepository.update(Categoria,id);
-        return retorno;
+    public String updateCategoria(@RequestBody Categoria Categoria, @PathVariable Integer ID_Categoria){
+        return CategoriaRepository.update(Categoria,ID_Categoria);
     }
     
     // borrar D
-    @DeleteMapping("/Categoria/{id}")
-    public void borrar(@PathVariable String id){
-        CategoriaRepository.delete(id);
+    @DeleteMapping("/Categoria/{ID_Categoria}")
+    public void borrar(@PathVariable Integer ID_Categoria){
+        CategoriaRepository.delete(ID_Categoria);
     }
 }

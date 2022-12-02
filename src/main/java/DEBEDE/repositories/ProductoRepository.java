@@ -22,11 +22,11 @@ public interface ProductoRepository {
     * una excepción, si la conexion falla o si no encuentra el id.
     *
     * @param producto objeto de la clase Producto que tiene los atributos correspondientes a insertar en un producto.
-    * @param id string alfanumerico correspondiente al id del producto al cual se desea insertar datos.
+    * @param ID_Producto string alfanumerico correspondiente al id del producto al cual se desea insertar datos.
     * @return retorna un string que indica el exito de la actualización de los datos.
     * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
     */
-    public String update(Producto producto, String id);
+    public String update(Producto producto, Integer ID_Producto);
 
 
     /**
@@ -43,11 +43,11 @@ public interface ProductoRepository {
     * Lista un producto con un id especifico de la base de datos.
     * Si la conexion falla o si no encuentra el id lanzará excepción.
     *
-    * @param id identificador del producto que se desea mostrar.
+    * @param ID_Producto identificador del producto que se desea mostrar.
     * @return retorna una lista de Producto que contiene el producto con el id solicitado o null si se lanza excepcion.
     * @throws Exception Si la conexion falla o si no encuentra el id.
     */
-    public List<Producto> show(String id);
+    public List<Producto> show(Integer ID_Producto);
 
 
     /**
@@ -69,7 +69,7 @@ public interface ProductoRepository {
     * @return retorna una lista de Producto que contiene el producto con la categoria solicitada o null si se lanza excepcion.
     * @throws Exception Si la conexion falla o si no encuentra el id.
     */
-    public List<Producto> showByID_Empresa(int ID_Empresa);
+    public List<Producto> showByID_Empresa(Integer ID_Empresa);
 
 
 
@@ -80,5 +80,5 @@ public interface ProductoRepository {
     * @param ID_Producto identificador del producto que se desea eliminar.
     * @throws Exception Si la conexion falla o si no encuentra el id.
     */
-    public void delete(int ID_Producto);
+    public void delete(Integer ID_Producto);
 }

@@ -51,10 +51,10 @@ public class ProductoRepositoryImp implements ProductoRepository{
 
 
     @Override
-    public List<Producto> show(String id) {
+    public List<Producto> show(Integer ID_Producto) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from producto where ID_Producto = :ID_Producto ")
-                    .addParameter("id",id)
+                    .addParameter("Integer ID_Producto", ID_Producto)
                     .executeAndFetch(Producto.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -77,7 +77,7 @@ public class ProductoRepositoryImp implements ProductoRepository{
 
 
     @Override
-    public List<Producto> showByID_Empresa(int ID_Empresa) {
+    public List<Producto> showByID_Empresa(Integer ID_Empresa) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from producto where ID_Empresa = :ID_Empresa")
                     .addParameter("ID_Empresa", ID_Empresa)
@@ -90,7 +90,7 @@ public class ProductoRepositoryImp implements ProductoRepository{
 
 
     @Override
-    public void delete(int ID_Producto) {
+    public void delete(Integer ID_Producto) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from producto where ID_Producto = :ID_Producto")
                     .addParameter("ID_Producto",ID_Producto)
@@ -102,10 +102,11 @@ public class ProductoRepositoryImp implements ProductoRepository{
 
 
     @Override
-    public String update(Producto producto, String id){
+    public String update(Producto producto, Integer ID_Producto){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update producto set ID_Producto=:ID_Producto, Nombre_Producto=:Nombre_Producto, Stock=:Stock, EsExplicito=:EsExplicito, " +
-                    "Descripcion=:Descripcion, Link_pagina=:Link_pagina, Imagen_producto=:Imagen_producto, ID_Empresa=:ID_Empresa";
+            String updateSql = "update producto set ID_Producto=:ID_Producto, Nombre_Producto=:Nombre_Producto, " +
+                    "Stock=:Stock, EsExplicito=:EsExplicito, Descripcion=:Descripcion, Link_pagina=:Link_pagina, " +
+                    "Imagen_producto=:Imagen_producto, ID_Empresa=:ID_Empresa WHERE ID_Producto=:ID_Producto";
             conn.createQuery(updateSql)
                 .addParameter("ID_Producto", producto.getID_Producto())
                 .addParameter("Nombre_Producto", producto.getNombre_Producto())

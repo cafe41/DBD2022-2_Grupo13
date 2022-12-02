@@ -41,7 +41,7 @@ public class ProductoService {
     }
     @GetMapping("/producto/{ID_Producto}")
     public List<Producto> getProducto(@PathVariable Integer ID_Producto){
-        return productoRepository.show(ID_Producto.toString());
+        return productoRepository.show(ID_Producto);
     }
 
     @GetMapping("/producto/precioMaximo/{precio}")
@@ -50,7 +50,7 @@ public class ProductoService {
     }
 
     @GetMapping("/producto/{ID_Empresa}")
-    public List<Producto> getProductoByID_Empresa(@PathVariable int ID_Empresa){
+    public List<Producto> getProductoByID_Empresa(@PathVariable Integer ID_Empresa){
         return productoRepository.showByID_Empresa(ID_Empresa);
     }
     
@@ -59,12 +59,12 @@ public class ProductoService {
     @PutMapping("/producto/{ID_Producto}")
     @ResponseBody
     public String updateProducto(@RequestBody Producto producto, @PathVariable Integer ID_Producto){
-        return productoRepository.update(producto,ID_Producto.toString());
+        return productoRepository.update(producto,ID_Producto);
     }
     
     // borrar D
     @DeleteMapping("/producto/{ID_Producto}")
-    public void borrar(@PathVariable int ID_Producto){
+    public void borrar(@PathVariable Integer ID_Producto){
         productoRepository.delete(ID_Producto);
     }
 }
