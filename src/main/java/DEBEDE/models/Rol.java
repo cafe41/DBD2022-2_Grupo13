@@ -25,6 +25,8 @@ public class Rol {
     public String getDescripcion() {
         return descripcion;
     }
+
+
     //Setters
 
     public void setID_Rol(Integer ID_Rol) {
