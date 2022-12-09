@@ -1,22 +1,22 @@
 package DEBEDE.models;
 
 public class Pais_Empresa {
-    private Integer ID_Ranking;
+    private Integer ID_Pais_Empresa;
     private Integer ID_Pais;
     private Integer ID_Empresa;
 
     //Constructor
 
-    public Pais_Empresa(Integer ID_Ranking, Integer ID_Pais, Integer ID_Empresa) {
-        this.ID_Ranking = ID_Ranking;
+    public Pais_Empresa(Integer ID_Pais_Empresa, Integer ID_Pais, Integer ID_Empresa) {
+        this.ID_Pais_Empresa = ID_Pais_Empresa;
         this.ID_Pais = ID_Pais;
         this.ID_Empresa = ID_Empresa;
     }
 
     //Getters
 
-    public Integer getID_Ranking() {
-        return ID_Ranking;
+    public Integer getID_Pais_Empresa() {
+        return ID_Pais_Empresa;
     }
 
     public Integer getID_Pais() {
@@ -29,8 +29,8 @@ public class Pais_Empresa {
 
     //Setters
 
-    public void setID_Ranking(Integer ID_Ranking) {
-        this.ID_Ranking = ID_Ranking;
+    public void setID_Ranking(Integer ID_Pais_Empresa) {
+        this.ID_Pais_Empresa = ID_Pais_Empresa;
     }
 
     public void setID_Pais(Integer ID_Pais) {

@@ -22,11 +22,11 @@ public interface UsuarioRepository {
      * una excepción, si la conexion falla o si no encuentra el id.
      *
      * @param Usuario objeto de la clase Usuario que tiene los atributos correspondientes a insertar en un Usuario.
-     * @param id_usuario integer correspondiente al id del Usuario al cual se desea insertar datos.
+     * @param ID_Usuario integer correspondiente al id del Usuario al cual se desea insertar datos.
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Usuario Usuario, Integer id_usuario);
+    public String update(Usuario Usuario, Integer ID_Usuario);
 
 
     /**
@@ -43,11 +43,11 @@ public interface UsuarioRepository {
      * Lista una Usuario con un id especifico de la base de datos.
      * Si la conexion falla o si no encuentra el id lanzará excepción.
      *
-     * @param id_usuario identificador del Usuario que se desea mostrar.
+     * @param ID_Usuario identificador del Usuario que se desea mostrar.
      * @return retorna una lista de Usuarios que contiene al Usuario con la id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Usuario> show(Integer id_usuario);
+    public List<Usuario> show(Integer ID_Usuario);
 
 
 
@@ -55,9 +55,9 @@ public interface UsuarioRepository {
      * Elimina un Usuario de la base de datos por su id.
      * Si la conexion falla o si no encuentra el id lanzará excepción.
      *
-     * @param id_usuario identificador del Usuario que se desea eliminar.
+     * @param ID_Usuario identificador del Usuario que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(Integer id_usuario);
+    public void delete(Integer ID_Usuario);
 
 }

@@ -8,8 +8,8 @@ public class Categoria {
     // Constructor
     public Categoria(Integer ID_Categoria, String nombre_Categoria, String descripcion_Categoria) {
         this.ID_Categoria = ID_Categoria;
-        Nombre_Categoria = nombre_Categoria;
-        Descripcion_Categoria = descripcion_Categoria;
+        this.Nombre_Categoria = nombre_Categoria;
+        this.Descripcion_Categoria = descripcion_Categoria;
     }
 
     // Getters

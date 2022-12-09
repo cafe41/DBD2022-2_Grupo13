@@ -7,19 +7,19 @@ public class Usuario {
     private String Nombre_Usuario;
     private String Nombre;
     private Date Fecha_Nacimiento;
-    private String Contraseña;
+    private String Contrasena;
     private String Correo;
     private Integer ID_Pago;
 
     public Usuario(Integer ID_Usuario, String nombre_Usuario, String nombre,
-                   Date fecha_Nacimiento, String contraseña, String correo,
+                   Date fecha_Nacimiento, String contrasena, String correo,
                    Integer ID_Pago) {
         this.ID_Usuario = ID_Usuario;
-        Nombre_Usuario = nombre_Usuario;
-        Nombre = nombre;
-        Fecha_Nacimiento = fecha_Nacimiento;
-        Contraseña = contraseña;
-        Correo = correo;
+        this.Nombre_Usuario = nombre_Usuario;
+        this.Nombre = nombre;
+        this.Fecha_Nacimiento = fecha_Nacimiento;
+        this.Contrasena = contrasena;
+        this.Correo = correo;
         this.ID_Pago = ID_Pago;
     }
 
@@ -40,8 +40,8 @@ public class Usuario {
         return Fecha_Nacimiento;
     }
 
-    public String getContraseña() {
-        return Contraseña;
+    public String getContrasena() {
+        return Contrasena;
     }
 
     public String getCorreo() {
@@ -69,8 +69,8 @@ public class Usuario {
         Fecha_Nacimiento = fecha_Nacimiento;
     }
 
-    public void setContraseña(String contraseña) {
-        Contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        Contrasena = contrasena;
     }
 
     public void setCorreo(String correo) {

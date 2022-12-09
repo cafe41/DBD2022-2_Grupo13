@@ -8,7 +8,7 @@ public class Permiso {
 
     public Permiso(Integer ID_Permiso, String descripcion_Permiso) {
         this.ID_Permiso = ID_Permiso;
-        Descripcion_Permiso = descripcion_Permiso;
+        this.Descripcion_Permiso = descripcion_Permiso;
     }
 
 
