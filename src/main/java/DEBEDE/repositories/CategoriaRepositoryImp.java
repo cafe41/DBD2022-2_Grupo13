@@ -16,11 +16,12 @@ public class CategoriaRepositoryImp implements CategoriaRepository{
     @Override
     public Categoria crear(Categoria Categoria){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Categoria (id,nombre)" +
-            "VALUES (id, :nombre)";
+            String sql = "INSERT INTO Categoria (ID_Categoria,Nombre_Categoria,Descripcion_Categoria)" +
+            "VALUES (ID_Categoria, :Nombre_Categoria, :Descripcion_Categoria)";
             conn.createQuery(sql, true)
-                .addColumnMapping("id", Categoria.getId_Categoria())
-                .addParameter("nombre", Categoria.getNombre_Categoria())
+                .addColumnMapping("ID_Categoria", Categoria.getID_Categoria().toString())
+                .addParameter("Nombre_Categoria", Categoria.getNombre_Categoria())
+                .addParameter("Descripcion_Categoria", Categoria.getDescripcion_Categoria())
                 .executeUpdate();
                 return Categoria;
         } catch (Exception e) {
@@ -45,10 +46,10 @@ public class CategoriaRepositoryImp implements CategoriaRepository{
 
 
     @Override
-    public List<Categoria> show(String id) {
+    public List<Categoria> show(Integer ID_Categoria) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Categoria where id = :id ")
-                    .addParameter("id",id)
+            return conn.createQuery("select * from Categoria where ID_Categoria = :ID_Categoria ")
+                    .addParameter("ID_Categoria",ID_Categoria)
                     .executeAndFetch(Categoria.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -60,10 +61,10 @@ public class CategoriaRepositoryImp implements CategoriaRepository{
 
 
     @Override
-    public void delete(String id) {
+    public void delete(Integer ID_Categoria) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Categoria where id = :id ")
-                    .addParameter("id",id)
+            conn.createQuery("DELETE from Categoria where ID_Categoria = :ID_Categoria ")
+                    .addParameter("ID_Categoria",ID_Categoria)
                     .executeUpdate();
         }catch (Exception e) {
             System.out.println(e.getMessage());
@@ -73,12 +74,14 @@ public class CategoriaRepositoryImp implements CategoriaRepository{
 
 
     @Override
-    public String update(Categoria Categoria, String id){
+    public String update(Categoria Categoria, Integer ID_Categoria){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Categoria set nombre=:nombre WHERE id=:id";
+            String updateSql = "update Categoria set Nombre_Categoria=:Nombre_Categoria, " +
+                    "Descripcion_Categoria=:Descripcion_Categoria WHERE ID_Categoria=:ID_Categoria";
             conn.createQuery(updateSql)
-                .addParameter("id", id)
-                .addParameter("nombre", Categoria.getNombre_Categoria())
+                .addParameter("ID_Categoria", ID_Categoria)
+                .addParameter("Nombre_Categoria", Categoria.getNombre_Categoria())
+                .addParameter("Descripcion_Categoria", Categoria.getDescripcion_Categoria())
                 .executeUpdate();
             return "Se actualizó el Categoria";
         }catch (Exception e) {

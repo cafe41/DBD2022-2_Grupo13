@@ -1,31 +1,40 @@
 package DEBEDE.models;
 
 public class Categoria {
-    private String id;
-    private String nombre;
+    private Integer ID_Categoria;
+    private String Nombre_Categoria;
+    private String Descripcion_Categoria;
 
     // Constructor
-    public Categoria(String id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
+    public Categoria(Integer ID_Categoria, String nombre_Categoria, String descripcion_Categoria) {
+        this.ID_Categoria = ID_Categoria;
+        Nombre_Categoria = nombre_Categoria;
+        Descripcion_Categoria = descripcion_Categoria;
     }
 
     // Getters
-    public String getId_Categoria() {
-        return id;
+    public Integer getID_Categoria() {
+        return ID_Categoria;
     }
 
     public String getNombre_Categoria() {
-        return nombre;
+        return Nombre_Categoria;
+    }
+
+    public String getDescripcion_Categoria() {
+        return Descripcion_Categoria;
     }
 
     // Setters
-    public void setId_Categoria(String id) {
-        this.id = id;
+    public void setID_Categoria(Integer ID_Categoria) {
+        this.ID_Categoria = ID_Categoria;
     }
 
-    public void setNombre_Categoria(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_Categoria(String nombre_Categoria) {
+        Nombre_Categoria = nombre_Categoria;
     }
 
+    public void setDescripcion_Categoria(String descripcion_Categoria) {
+        Descripcion_Categoria = descripcion_Categoria;
+    }
 }
