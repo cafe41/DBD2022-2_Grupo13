@@ -26,7 +26,7 @@ public interface Empresa_CategoriaRepository {
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Empresa_Categoria Empresa_Categoria, String id_Empresa_Categoria);
+    public String update(Empresa_Categoria Empresa_Categoria, Integer id_Empresa_Categoria);
 
 
     /**
@@ -47,7 +47,7 @@ public interface Empresa_CategoriaRepository {
      * @return retorna una lista de Empresa_Categoria que contiene la Empresa_Categoria con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Empresa_Categoria> show(String id_Empresa_Categoria);
+    public List<Empresa_Categoria> show(Integer id_Empresa_Categoria);
 
 
 
@@ -58,6 +58,6 @@ public interface Empresa_CategoriaRepository {
      * @param id_Empresa_Categoria identificador de la Empresa_Categoria que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_Empresa_Categoria);
+    public void delete(Integer id_Empresa_Categoria);
     
 }

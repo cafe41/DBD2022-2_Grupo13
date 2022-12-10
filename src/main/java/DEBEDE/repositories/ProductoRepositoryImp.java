@@ -105,14 +105,9 @@ public class ProductoRepositoryImp implements ProductoRepository{
     @Override
     public String update(Producto producto, Integer ID_Producto){
         try(Connection conn = sql2o.open()){
-<<<<<<< HEAD
-            String updateSql = "update producto set ID_Producto=:ID_Producto, Nombre_Producto=:Nombre_Producto, Stock=:Stock, Precio=:Precio ,EsExplicito=:EsExplicito, " +
-                    "Descripcion=:Descripcion, Link_pagina=:Link_pagina, Imagen_producto=:Imagen_producto, ID_Empresa=:ID_Empresa";
-=======
             String updateSql = "update producto set ID_Producto=:ID_Producto, Nombre_Producto=:Nombre_Producto, " +
                     "Stock=:Stock, EsExplicito=:EsExplicito, Descripcion=:Descripcion, Link_pagina=:Link_pagina, " +
                     "Imagen_producto=:Imagen_producto, ID_Empresa=:ID_Empresa WHERE ID_Producto=:ID_Producto";
->>>>>>> e8d01cb753aefe50df90c414f0495b9f28b69e9d
             conn.createQuery(updateSql)
                 .addParameter("ID_Producto", producto.getID_Producto())
                 .addParameter("Nombre_Producto", producto.getNombre_Producto())

@@ -26,7 +26,7 @@ public interface Pais_EmpresaRepository {
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Pais_Empresa Pais_Empresa, String id_Pais_Empresa);
+    public String update(Pais_Empresa Pais_Empresa, Integer id_Pais_Empresa);
 
 
     /**
@@ -47,7 +47,7 @@ public interface Pais_EmpresaRepository {
      * @return retorna una lista de Pais_Empresa que contiene la Pais_Empresa con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Pais_Empresa> show(String id_Pais_Empresa);
+    public List<Pais_Empresa> show(Integer id_Pais_Empresa);
 
 
 
@@ -58,5 +58,5 @@ public interface Pais_EmpresaRepository {
      * @param id_Pais_Empresa identificador de la Pais_Empresa que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_Pais_Empresa);
+    public void delete(Integer id_Pais_Empresa);
 }

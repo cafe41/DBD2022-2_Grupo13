@@ -26,7 +26,7 @@ public interface Permiso_RolRepository {
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Permiso_Rol Permiso_Rol, String id_Permiso_Rol);
+    public String update(Permiso_Rol Permiso_Rol, Integer id_Permiso_Rol);
 
 
     /**
@@ -47,7 +47,7 @@ public interface Permiso_RolRepository {
      * @return retorna una lista de Permiso_Rol que contiene la Permiso_Rol con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Permiso_Rol> show(String id_Permiso_Rol);
+    public List<Permiso_Rol> show(Integer id_Permiso_Rol);
 
 
 
@@ -58,5 +58,5 @@ public interface Permiso_RolRepository {
      * @param id_Permiso_Rol identificador de la Permiso_Rol que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_Permiso_Rol);
+    public void delete(Integer id_Permiso_Rol);
 }

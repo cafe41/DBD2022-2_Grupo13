@@ -26,7 +26,7 @@ public interface Favoritos_EmpresaRepository {
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Favoritos_Empresa Favoritos_Empresa, String id_Favoritos_Empresa);
+    public String update(Favoritos_Empresa Favoritos_Empresa, Integer id_Favoritos_Empresa);
 
 
     /**
@@ -47,7 +47,7 @@ public interface Favoritos_EmpresaRepository {
      * @return retorna una lista de Favoritos_Empresa que contiene la Favoritos_Empresa con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Favoritos_Empresa> show(String id_Favoritos_Empresa);
+    public List<Favoritos_Empresa> show(Integer id_Favoritos_Empresa);
 
 
 
@@ -58,5 +58,5 @@ public interface Favoritos_EmpresaRepository {
      * @param id_Favoritos_Empresa identificador de la Favoritos_Empresa que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_Favoritos_Empresa);
+    public void delete(Integer id_Favoritos_Empresa);
 }
