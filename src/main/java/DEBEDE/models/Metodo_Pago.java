@@ -12,9 +12,9 @@ public class Metodo_Pago {
     //Constructor
     public Metodo_Pago(Integer ID_Metodo_Pago, String tipo_Tarjeta, String numero_Tarjeta, Date fecha, Integer ID_Usuario) {
         this.ID_Metodo_Pago = ID_Metodo_Pago;
-        Tipo_Tarjeta = tipo_Tarjeta;
-        Numero_Tarjeta = numero_Tarjeta;
-        Fecha = fecha;
+        this.Tipo_Tarjeta = tipo_Tarjeta;
+        this.Numero_Tarjeta = numero_Tarjeta;
+        this.Fecha = fecha;
         this.ID_Usuario = ID_Usuario;
     }
 

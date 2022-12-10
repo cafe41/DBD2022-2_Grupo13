@@ -22,18 +22,18 @@ public interface ValoracionRepository {
      * una excepción, si la conexion falla o si no encuentra el id.
      *
      * @param Valoracion objeto de la clase Valoracion que tiene los atributos correspondientes a insertar en una Valoracion.
-     * @param id_Valoracion string alfanumerico correspondiente al id de la Valoracion  a la cual se desea insertar datos.
+     * @param ID_Valoracion Integer correspondiente al id de la Valoracion  a la cual se desea insertar datos.
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Valoracion Valoracion, String id_Valoracion);
+    public String update(Valoracion Valoracion, Integer ID_Valoracion);
 
 
     /**
-     * Lista todos las Valoracions de la base de datos ascendente por nombre.
+     * Lista todos las Valoraciones de la base de datos ascendente por nombre.
      * Si la conexion falla lanzará excepción.
      *
-     * @return retorna una lista de Valoracion que contiene las Valoracions o null si se lanza excepcion.
+     * @return retorna una lista de Valoraciones que contiene las Valoraciones o null si se lanza excepcion.
      * @throws Exception Si la conexion falla.
      */
     public List<Valoracion> getAll();
@@ -43,11 +43,11 @@ public interface ValoracionRepository {
      * Lista una Valoracion con un id especifico de la base de datos.
      * Si la conexion falla o si no encuentra el id lanzará excepción.
      *
-     * @param id_Valoracion identificador de la Valoracion que se desea mostrar.
-     * @return retorna una lista de Valoracion que contiene la Valoracion con el id solicitado o null si se lanza excepcion.
+     * @param ID_Valoracion identificador de la Valoracion que se desea mostrar.
+     * @return retorna una lista de Valoraciones que contiene la Valoracion con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Valoracion> show(String id_Valoracion);
+    public List<Valoracion> show(Integer ID_Valoracion);
 
 
 
@@ -55,8 +55,9 @@ public interface ValoracionRepository {
      * Elimina una Valoracion de la base de datos por su id.
      * Si la conexion falla o si no encuentra el id lanzará excepción.
      *
-     * @param id_Valoracion identificador de la Valoracion que se desea eliminar.
+     * @param ID_Valoracion identificador de la Valoracion que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_Valoracion);
+    public void delete(Integer ID_Valoracion);
+
 }
