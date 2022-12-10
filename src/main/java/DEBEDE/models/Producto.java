@@ -6,17 +6,21 @@ public class Producto {
     private Integer ID_Producto;
     private String Nombre_Producto;
     private Integer Stock;
+
+    private Integer Precio;
     private Integer EsExplicito;
     private String Descripcion;
     private String Link_pagina;
     private String Imagen_producto;
     private Integer ID_Empresa;
 
+
     // Constructor
-    public Producto(Integer ID_Producto, String nombre_Producto, Integer stock, Integer esExplicito, String descripcion, String link_pagina, String imagen_producto, Integer ID_Empresa) {
+    public Producto(Integer ID_Producto, String nombre_Producto, Integer stock, Integer precio ,Integer esExplicito, String descripcion, String link_pagina, String imagen_producto, Integer ID_Empresa) {
         this.ID_Producto = ID_Producto;
         Nombre_Producto = nombre_Producto;
         Stock = stock;
+        Precio= precio;
         EsExplicito = esExplicito;
         Descripcion = descripcion;
         Link_pagina = link_pagina;
@@ -33,6 +37,9 @@ public class Producto {
     }
     public Integer getStock() {
         return Stock;
+    }
+    public Integer getPrecio() {
+        return Precio;
     }
     public Integer getEsExplicito() {
         return EsExplicito;
@@ -59,6 +66,9 @@ public class Producto {
     }
     public void setStock(Integer stock) {
         Stock = stock;
+    }
+    public void setPrecio(Integer precio) {
+        Precio = precio;
     }
     public void setEsExplicito(Integer esExplicito) {
         EsExplicito = esExplicito;
