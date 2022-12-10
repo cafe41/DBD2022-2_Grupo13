@@ -26,7 +26,7 @@ public interface Rol_UsuarioRepository {
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Rol_Usuario Rol_Usuario, String id_Rol_Usuario);
+    public String update(Rol_Usuario Rol_Usuario, Integer id_Rol_Usuario);
 
 
     /**
@@ -47,7 +47,7 @@ public interface Rol_UsuarioRepository {
      * @return retorna una lista de Rol_Usuario que contiene la Rol_Usuario con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Rol_Usuario> show(String id_Rol_Usuario);
+    public List<Rol_Usuario> show(Integer id_Rol_Usuario);
 
 
 
@@ -58,5 +58,5 @@ public interface Rol_UsuarioRepository {
      * @param id_Rol_Usuario identificador de la Rol_Usuario que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_Rol_Usuario);
+    public void delete(Integer id_Rol_Usuario);
 }

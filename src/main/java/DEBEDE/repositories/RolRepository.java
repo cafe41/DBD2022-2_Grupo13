@@ -26,7 +26,7 @@ public interface RolRepository {
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Rol Rol, String id_rol);
+    public String update(Rol Rol, Integer id_rol);
 
 
     /**
@@ -47,7 +47,7 @@ public interface RolRepository {
      * @return retorna una lista de Categoria que contiene el Rol con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Rol> show(String id_rol);
+    public List<Rol> show(Integer id_rol);
 
 
 
@@ -58,5 +58,5 @@ public interface RolRepository {
      * @param id_rol identificador del Categoria que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_rol);
+    public void delete(Integer id_rol);
 }

@@ -47,7 +47,7 @@ public class RolRepositoryImp implements RolRepository{
 
 
     @Override
-    public List<Rol> show(String id_rol) {
+    public List<Rol> show(Integer id_rol) {
         try(Connection conn = sql2o.open()){
             return conn.createQuery("select * from Rol where id_rol = :id_rol ")
                     .addParameter("id_rol",id_rol)
@@ -62,7 +62,7 @@ public class RolRepositoryImp implements RolRepository{
 
 
     @Override
-    public void delete(String id_rol) {
+    public void delete(Integer id_rol) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from Rol where id_rol = :id_rol ")
                     .addParameter("id_rol",id_rol)
@@ -75,7 +75,7 @@ public class RolRepositoryImp implements RolRepository{
 
 
     @Override
-    public String update(Rol Rol, String id_rol){
+    public String update(Rol Rol, Integer id_rol){
         try(Connection conn = sql2o.open()){
             String updateSql = "update Rol set tipo=:tipo, descripcion=:descripcion WHERE id_rol=:id_rol";
             conn.createQuery(updateSql)

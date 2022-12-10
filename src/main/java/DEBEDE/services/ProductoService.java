@@ -26,6 +26,7 @@ public class ProductoService {
         this.productoRepository = productoRepository;
     }
 
+    // crear C
     @PostMapping("/producto")
     @ResponseBody
     public Producto crear(@RequestBody Producto producto){

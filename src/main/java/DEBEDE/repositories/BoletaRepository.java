@@ -26,7 +26,7 @@ public interface BoletaRepository {
      * @return retorna un string que indica el exito de la actualización de los datos.
      * @throws Exception Si uno de los atributos es null o vacio o si no encuentra el id.
      */
-    public String update(Boleta Boleta, String id_boleta);
+    public String update(Boleta Boleta, Integer id_boleta);
 
 
     /**
@@ -47,7 +47,7 @@ public interface BoletaRepository {
      * @return retorna una lista de Boleta que contiene la Boleta con el id solicitado o null si se lanza excepcion.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public List<Boleta> show(String id_boleta);
+    public List<Boleta> show(Integer id_boleta);
 
 
 
@@ -58,6 +58,6 @@ public interface BoletaRepository {
      * @param id_boleta identificador de la Boleta que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String id_boleta);
+    public void delete(Integer id_boleta);
 
 }

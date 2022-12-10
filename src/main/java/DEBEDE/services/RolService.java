@@ -1,8 +1,6 @@
 package DEBEDE.services;
 
-import DEBEDE.models.Categoria;
 import DEBEDE.models.Rol;
-import DEBEDE.repositories.CategoriaRepository;
 import DEBEDE.repositories.RolRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,20 +41,20 @@ public class RolService {
     }
     //get by
     @GetMapping("/Rol/{id_rol}")
-    public List<Rol> getRol(@PathVariable String id_rol){
+    public List<Rol> getRol(@PathVariable Integer id_rol){
         return RolRepository.show(id_rol);
     }
 
     // actualizar U
     @PutMapping("/Rol/{id_rol}")
     @ResponseBody
-    public String updateRol(@RequestBody Rol Rol, @PathVariable String id_rol){
+    public String updateRol(@RequestBody Rol Rol, @PathVariable Integer id_rol){
         String retorno = RolRepository.update(Rol,id_rol);
         return retorno;
     }
     // borrar D
     @DeleteMapping("/Rol/{id_rol}")
-    public void borrar(@PathVariable String id_rol){
+    public void borrar(@PathVariable Integer id_rol){
         RolRepository.delete(id_rol);
     }
 
