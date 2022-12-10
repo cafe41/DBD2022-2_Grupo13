@@ -7,16 +7,19 @@ public class Producto {
     private String Nombre_Producto;
     private Integer Stock;
     private Boolean EsExplicito;
+    private Integer Precio;
     private String Descripcion;
     private String Link_pagina;
     private String Imagen_producto;
     private Integer ID_Empresa;
 
+
     // Constructor
-    public Producto(Integer ID_Producto, String nombre_Producto, Integer stock, Boolean esExplicito, String descripcion, String link_pagina, String imagen_producto, Integer ID_Empresa) {
+    public Producto(Integer ID_Producto, String nombre_Producto, Integer stock, Integer precio ,Boolean esExplicito, String descripcion, String link_pagina, String imagen_producto, Integer ID_Empresa) {
         this.ID_Producto = ID_Producto;
         this.Nombre_Producto = nombre_Producto;
         this.Stock = stock;
+        this.Precio= precio;
         this.EsExplicito = esExplicito;
         this.Descripcion = descripcion;
         this.Link_pagina = link_pagina;
@@ -33,6 +36,9 @@ public class Producto {
     }
     public Integer getStock() {
         return Stock;
+    }
+    public Integer getPrecio() {
+        return Precio;
     }
     public Boolean getEsExplicito() {
         return EsExplicito;
@@ -59,6 +65,9 @@ public class Producto {
     }
     public void setStock(Integer stock) {
         Stock = stock;
+    }
+    public void setPrecio(Integer precio) {
+        Precio = precio;
     }
     public void setEsExplicito(Boolean esExplicito) {
         EsExplicito = esExplicito;

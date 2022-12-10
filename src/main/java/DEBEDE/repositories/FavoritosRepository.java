@@ -6,18 +6,18 @@ import java.util.List;
 
 public interface FavoritosRepository {
     /**
-     * Inserta un Favorito en la tabla Favoritos.
+     * Inserta un Favoritos en la tabla Favoritos.
      * Al ser el todos sus atributos obligatorios (excepto id), si son nulos o vacíos se lanzará
      * una excepción o si la conexion falla .
      *
      * @param Favoritos objeto de la clase Favoritos que tiene los atributos correspondientes a insertar como Favoritos.
-     * @return retorna un Favorito que contiene el Favorito creado o null si se lanza excepcion.
+     * @return retorna un Favoritos que contiene el Favoritos creada o null si se lanza excepcion.
      * @throws Exception Si uno de los atributos es null o vacio.
      */
     public Favoritos crear(Favoritos Favoritos);
 
     /**
-     * Inserta datos en un Favorito en la tabla Favoritos.
+     * Inserta datos en un Favoritos en la tabla Favoritos.
      * Al ser el todos sus atributos obligatorios (excepto id), si son nulos o vacíos se lanzará
      * una excepción, si la conexion falla o si no encuentra el id.
      *

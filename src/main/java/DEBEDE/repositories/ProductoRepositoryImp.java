@@ -16,12 +16,13 @@ public class ProductoRepositoryImp implements ProductoRepository{
     @Override
     public Producto crear(Producto producto){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO producto (ID_Producto,Nombre_Producto, Stock, EsExplicito, Descripcion, Link_pagina, Imagen_producto, ID_Empresa)" +
-            "VALUES (:ID_Producto, :Nombre_Producto, :Stock, :EsExplicito, :Descripcion, :Link_pagina, :Imagen_producto, :ID_Empresa)";
+            String sql = "INSERT INTO producto (ID_Producto,Nombre_Producto, Stock,Precio ,EsExplicito, Descripcion, Link_pagina, Imagen_producto, ID_Empresa)" +
+            "VALUES (:ID_Producto, :Nombre_Producto, :Stock, :Precio ,:EsExplicito, :Descripcion, :Link_pagina, :Imagen_producto, :ID_Empresa)";
             conn.createQuery(sql, true)
                 .addParameter("ID_Producto", producto.getID_Producto())
                 .addParameter("Nombre_Producto", producto.getNombre_Producto())
                 .addParameter("Stock", producto.getStock())
+                    .addParameter("Precio", producto.getPrecio())
                 .addParameter("EsExplicito", producto.getEsExplicito())
                 .addParameter("Descripcion", producto.getDescripcion())
                 .addParameter("Link_pagina", producto.getLink_pagina())
@@ -104,13 +105,19 @@ public class ProductoRepositoryImp implements ProductoRepository{
     @Override
     public String update(Producto producto, Integer ID_Producto){
         try(Connection conn = sql2o.open()){
+<<<<<<< HEAD
+            String updateSql = "update producto set ID_Producto=:ID_Producto, Nombre_Producto=:Nombre_Producto, Stock=:Stock, Precio=:Precio ,EsExplicito=:EsExplicito, " +
+                    "Descripcion=:Descripcion, Link_pagina=:Link_pagina, Imagen_producto=:Imagen_producto, ID_Empresa=:ID_Empresa";
+=======
             String updateSql = "update producto set ID_Producto=:ID_Producto, Nombre_Producto=:Nombre_Producto, " +
                     "Stock=:Stock, EsExplicito=:EsExplicito, Descripcion=:Descripcion, Link_pagina=:Link_pagina, " +
                     "Imagen_producto=:Imagen_producto, ID_Empresa=:ID_Empresa WHERE ID_Producto=:ID_Producto";
+>>>>>>> e8d01cb753aefe50df90c414f0495b9f28b69e9d
             conn.createQuery(updateSql)
                 .addParameter("ID_Producto", producto.getID_Producto())
                 .addParameter("Nombre_Producto", producto.getNombre_Producto())
                 .addParameter("Stock", producto.getStock())
+                    .addParameter("Precio", producto.getPrecio())
                 .addParameter("EsExplicito", producto.getEsExplicito())
                 .addParameter("Descripcion", producto.getDescripcion())
                 .addParameter("Link_pagina", producto.getLink_pagina())
