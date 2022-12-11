@@ -50,9 +50,9 @@ public class ProductoService {
         return productoRepository.showLessThan(precio);
     }
 
-    @GetMapping("/producto/{ID_Empresa}")
-    public List<Producto> getProductoByID_Empresa(@PathVariable Integer ID_Empresa){
-        return productoRepository.showByID_Empresa(ID_Empresa);
+    @GetMapping("/producto/Empresa/{id_empresa}")
+    public List<Producto> getProductoByID_Empresa(@PathVariable Integer id_empresa){
+        return productoRepository.showByID_Empresa(id_empresa);
     }
     
 

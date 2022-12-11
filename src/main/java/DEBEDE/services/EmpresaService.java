@@ -43,7 +43,7 @@ public class EmpresaService {
         return EmpresaRepository.show(id_empresa);
     }
     //get non explicit
-    @GetMapping("/Empresa")
+    @GetMapping("/Empresa/NonExplicit")
     public List<Empresa> getNonExplicit(){
         return EmpresaRepository.getNonExplicit();
     }
