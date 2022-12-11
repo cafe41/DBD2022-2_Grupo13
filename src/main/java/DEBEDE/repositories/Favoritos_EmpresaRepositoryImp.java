@@ -38,7 +38,7 @@ public class Favoritos_EmpresaRepositoryImp implements Favoritos_EmpresaReposito
     @Override
     public List<Favoritos_Empresa> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Favoritos_Empresa order by tipo ASC")
+            return conn.createQuery("select * from Favoritos_Empresa order by ID_Favoritos_Empresa ASC")
                     .executeAndFetch(Favoritos_Empresa.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());

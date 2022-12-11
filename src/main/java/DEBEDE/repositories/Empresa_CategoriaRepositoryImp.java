@@ -38,7 +38,7 @@ public class Empresa_CategoriaRepositoryImp implements Empresa_CategoriaReposito
     @Override
     public List<Empresa_Categoria> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Rol order by tipo ASC")
+            return conn.createQuery("select * from Rol order by ID_Empresa_Categoria ASC")
                     .executeAndFetch(Empresa_Categoria.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -36,7 +36,7 @@ public class CategoriaRepositoryImp implements CategoriaRepository{
     @Override
     public List<Categoria> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Categoria order by nombre ASC")
+            return conn.createQuery("select * from Categoria order by Nombre_Categoria ASC")
                     .executeAndFetch(Categoria.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());

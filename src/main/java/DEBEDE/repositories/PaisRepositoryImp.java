@@ -39,7 +39,7 @@ public class PaisRepositoryImp implements PaisRepository{
     @Override
     public List<Pais> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Pais order by tipo ASC")
+            return conn.createQuery("select * from Pais order by nombre_pais ASC")
                     .executeAndFetch(Pais.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -38,7 +38,7 @@ public class Pais_EmpresaRepositoryImp implements Pais_EmpresaRepository{
     @Override
     public List<Pais_Empresa> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Pais_Empresa order by tipo ASC")
+            return conn.createQuery("select * from Pais_Empresa order by ID_Pais_Empresa ASC")
                     .executeAndFetch(Pais_Empresa.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
