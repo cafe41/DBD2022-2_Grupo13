@@ -54,7 +54,7 @@ public interface EmpresaRepository {
      * Lista todas las Empresas de la base de datos que no sean explicitas de forma ascendente por nombre.
      * Si la conexion falla lanzará excepción.
      *
-     * @return retorna una lista de Empresas que tienen es_explicita == False o null si se lanza excepcion.
+     * @return retorna una lista de Empresas que tienen es_explicita == 0 o null si se lanza excepcion.
      * @throws Exception Si la conexion falla.
      */
     public List<Empresa> getNonExplicit();

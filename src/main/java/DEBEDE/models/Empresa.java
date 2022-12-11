@@ -3,10 +3,10 @@ package DEBEDE.models;
 public class Empresa {
     private Integer id_empresa;
     private String nombre_empresa;
-    private Boolean es_explicita;
+    private Integer es_explicita;
     private Integer id_ranking;
 
-    public Empresa(Integer id_empresa, String nombre_empresa, Boolean es_explicita, Integer id_ranking) {
+    public Empresa(Integer id_empresa, String nombre_empresa, Integer es_explicita, Integer id_ranking) {
         this.id_empresa = id_empresa;
         this.nombre_empresa = nombre_empresa;
         this.es_explicita = es_explicita;
@@ -29,11 +29,11 @@ public class Empresa {
         this.nombre_empresa = nombre_empresa;
     }
 
-    public Boolean getEs_explicita() {
+    public Integer getEs_explicita() {
         return es_explicita;
     }
 
-    public void setEs_explicita(Boolean es_explicita) {
+    public void setEs_explicita(Integer es_explicita) {
         this.es_explicita = es_explicita;
     }
 
