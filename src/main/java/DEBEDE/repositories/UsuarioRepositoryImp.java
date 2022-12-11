@@ -16,8 +16,8 @@ public class UsuarioRepositoryImp implements UsuarioRepository{
     @Override
     public Usuario crear(Usuario Usuario){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Usuario (ID_Usuario,Nombre_Usuario,Nombre,Fecha_Nacimiento,Contrasena,Correo, ID_Pago)" +
-                    "VALUES (:ID_Usuario,:Nombre_Usuario,:Nombre,:Fecha_Nacimiento,:Contrasena,:Correo, :ID_Pago)";
+            String sql = "INSERT INTO Usuario (ID_Usuario,Nombre_Usuario,Nombre,Fecha_Nacimiento,Contrasena,Correo, ID_Pais)" +
+                    "VALUES (:ID_Usuario,:Nombre_Usuario,:Nombre,:Fecha_Nacimiento,:Contrasena,:Correo, :ID_Pais)";
             conn.createQuery(sql, true)
                     .addColumnMapping("ID_Usuario", Usuario.getID_Usuario().toString())
                     .addParameter("Nombre_Usuario", Usuario.getNombre_Usuario())
@@ -25,7 +25,7 @@ public class UsuarioRepositoryImp implements UsuarioRepository{
                     .addParameter("Fecha_Nacimiento", Usuario.getFecha_Nacimiento())
                     .addParameter("Contrasena", Usuario.getContrasena())
                     .addParameter("Correo", Usuario.getCorreo())
-                    .addColumnMapping("ID_Pago", Usuario.getID_Pago().toString())
+                    .addColumnMapping("ID_Pago", Usuario.getID_Pais().toString())
                     .executeUpdate();
             return Usuario;
         } catch (Exception e) {
@@ -85,7 +85,7 @@ public class UsuarioRepositoryImp implements UsuarioRepository{
     @Override
     public String update(Usuario Usuario, Integer ID_Usuario){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Usuario set Nombre_Usuario=:Nombre_Usuario, Nombre=:Nombre, Fecha_Nacimiento=:Fecha_Nacimiento, Contrasena=:Contrasena , Correo=:Correo ,ID_Pago=:ID_Pago WHERE ID_Usuario=:ID_Usuario";
+            String updateSql = "update Usuario set Nombre_Usuario=:Nombre_Usuario, Nombre=:Nombre, Fecha_Nacimiento=:Fecha_Nacimiento, Contrasena=:Contrasena , Correo=:Correo ,ID_Pais=:ID_Pais WHERE ID_Usuario=:ID_Usuario";
             conn.createQuery(updateSql)
                     .addParameter("ID_Usuario", ID_Usuario)
                     .addParameter("Nombre_Usuario", Usuario.getNombre_Usuario())
@@ -93,7 +93,7 @@ public class UsuarioRepositoryImp implements UsuarioRepository{
                     .addParameter("Fecha_Nacimiento", Usuario.getFecha_Nacimiento())
                     .addParameter("Contrasena", Usuario.getContrasena())
                     .addParameter("Correo", Usuario.getCorreo())
-                    .addParameter("ID_Pago", Usuario.getID_Pago())
+                    .addParameter("ID_Pais", Usuario.getID_Pais())
 
                     .executeUpdate();
             return "Se actualizó al Usuario";

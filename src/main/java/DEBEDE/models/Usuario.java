@@ -9,18 +9,18 @@ public class Usuario {
     private Date Fecha_Nacimiento;
     private String Contrasena;
     private String Correo;
-    private Integer ID_Pago;
+    private Integer ID_Pais;
 
     public Usuario(Integer ID_Usuario, String nombre_Usuario, String nombre,
                    Date fecha_Nacimiento, String contrasena, String correo,
-                   Integer ID_Pago) {
+                   Integer ID_Pais) {
         this.ID_Usuario = ID_Usuario;
         this.Nombre_Usuario = nombre_Usuario;
         this.Nombre = nombre;
         this.Fecha_Nacimiento = fecha_Nacimiento;
         this.Contrasena = contrasena;
         this.Correo = correo;
-        this.ID_Pago = ID_Pago;
+        this.ID_Pais = ID_Pais;
     }
 
     //Getters
@@ -48,8 +48,8 @@ public class Usuario {
         return Correo;
     }
 
-    public Integer getID_Pago() {
-        return ID_Pago;
+    public Integer getID_Pais() {
+        return ID_Pais;
     }
 
     //Setters
@@ -77,7 +77,7 @@ public class Usuario {
         Correo = correo;
     }
 
-    public void setID_Pago(Integer ID_Pago) {
-        this.ID_Pago = ID_Pago;
+    public void setID_Pais(Integer ID_Pais) {
+        this.ID_Pais = ID_Pais;
     }
 }
