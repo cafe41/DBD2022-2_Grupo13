@@ -39,21 +39,21 @@ public class BoletaService {
     }
     //get by
     @GetMapping("/Boleta/{id_boleta}")
-    public List<Boleta> getBoleta(@PathVariable String id_boleta){
+    public List<Boleta> getBoleta(@PathVariable Integer id_boleta){
         return BoletaRepository.show(id_boleta);
     }
 
     // actualizar U
     @PutMapping("/Boleta/{id_boleta}")
     @ResponseBody
-    public String updateBoleta(@RequestBody Boleta Boleta, @PathVariable String id_boleta){
+    public String updateBoleta(@RequestBody Boleta Boleta, @PathVariable Integer id_boleta){
         String retorno = BoletaRepository.update(Boleta,id_boleta);
         return retorno;
     }
 
     // borrar D
     @DeleteMapping("/Boleta/{id_boleta}")
-    public void borrar(@PathVariable String id_boleta){
+    public void borrar(@PathVariable Integer id_boleta){
         BoletaRepository.delete(id_boleta);
     }
 
