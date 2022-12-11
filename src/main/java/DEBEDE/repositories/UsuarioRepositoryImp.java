@@ -58,6 +58,20 @@ public class UsuarioRepositoryImp implements UsuarioRepository{
     }
 
     @Override
+    public Boolean userExists(String nombre_Usuario, String contrasena){
+        try(Connection conn = sql2o.open()){
+            conn.createQuery("select * from Usuario where nombre_Usuario = :nombre_Usuario AND  contrasena = :contrasena")
+                    .addParameter("nombre_Usuario",nombre_Usuario)
+                    .addParameter("contrasena",contrasena)
+                    .executeAndFetch(Usuario.class);
+            return Boolean.TRUE;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return Boolean.FALSE;
+        }
+    }
+
+    @Override
     public void delete(Integer ID_Usuario) {
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from Usuario where ID_Usuario = :ID_Usuario ")

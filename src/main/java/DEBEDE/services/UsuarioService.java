@@ -42,6 +42,11 @@ public class UsuarioService {
     public List<Usuario> getUsuario(@PathVariable Integer ID_Usuario){
         return UsuarioRepository.show(ID_Usuario);
     }
+    //get check of user existance
+    @GetMapping("/Usuario/{nombre_Usuario}/{contrasena}")
+    public Boolean getUserExists(@PathVariable String nombre_Usuario, @PathVariable String contrasena){
+        return UsuarioRepository.userExists(nombre_Usuario, contrasena);
+    }
 
     // actualizar U
     @PutMapping("/Usuario/{ID_Usuario}")

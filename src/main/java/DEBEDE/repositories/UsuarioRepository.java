@@ -49,6 +49,17 @@ public interface UsuarioRepository {
      */
     public List<Usuario> show(Integer ID_Usuario);
 
+    /**
+     * Lista un Usuario con un nombre de usuario y contrasena especificos de la base de datos.
+     * Si la conexion falla o si no encuentra el Usuario se lanzará excepción.
+     *
+     * @param nombre_Usuario nonmbre del Usuario que se desea mostrar.
+     * @param contrasena contrasena del Usuario que se desea mostrar.
+     * @return retorna True si el Usuario con el nombre y contrasena solicitados existe o False si no existe o se lanza excepcion.
+     * @throws Exception Si la conexion falla o si no encuentra el Usuario buscado.
+     */
+    public Boolean userExists(String nombre_Usuario, String contrasena);
+
 
 
     /**
