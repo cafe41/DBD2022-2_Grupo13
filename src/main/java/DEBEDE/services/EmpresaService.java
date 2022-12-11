@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.util.List;
 
 @CrossOrigin
@@ -42,6 +41,11 @@ public class EmpresaService {
     @GetMapping("/Empresa/{id_empresa}")
     public List<Empresa> getEmpresa(@PathVariable Integer id_empresa){
         return EmpresaRepository.show(id_empresa);
+    }
+    //get non explicit
+    @GetMapping("/Empresa")
+    public List<Empresa> getNonExplicit(){
+        return EmpresaRepository.getNonExplicit();
     }
 
     // actualizar U

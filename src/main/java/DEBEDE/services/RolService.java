@@ -40,22 +40,22 @@ public class RolService {
         return RolRepository.getAll();
     }
     //get by
-    @GetMapping("/Rol/{id_rol}")
-    public List<Rol> getRol(@PathVariable Integer id_rol){
-        return RolRepository.show(id_rol);
+    @GetMapping("/Rol/{ID_Rol}")
+    public List<Rol> getRol(@PathVariable Integer ID_Rol){
+        return RolRepository.show(ID_Rol);
     }
 
     // actualizar U
-    @PutMapping("/Rol/{id_rol}")
+    @PutMapping("/Rol/{ID_Rol}")
     @ResponseBody
-    public String updateRol(@RequestBody Rol Rol, @PathVariable Integer id_rol){
-        String retorno = RolRepository.update(Rol,id_rol);
+    public String updateRol(@RequestBody Rol Rol, @PathVariable Integer ID_Rol){
+        String retorno = RolRepository.update(Rol,ID_Rol);
         return retorno;
     }
     // borrar D
-    @DeleteMapping("/Rol/{id_rol}")
-    public void borrar(@PathVariable Integer id_rol){
-        RolRepository.delete(id_rol);
+    @DeleteMapping("/Rol/{ID_Rol}")
+    public void borrar(@PathVariable Integer ID_Rol){
+        RolRepository.delete(ID_Rol);
     }
 
 

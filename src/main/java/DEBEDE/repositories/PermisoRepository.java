@@ -58,6 +58,6 @@ public interface PermisoRepository {
      * @param ID_Permiso identificador del Permiso que se desea eliminar.
      * @throws Exception Si la conexion falla o si no encuentra el id.
      */
-    public void delete(String ID_Permiso);
+    public void delete(Integer ID_Permiso);
 
 }
