@@ -45,7 +45,7 @@ public class FavoritosRepositoryImp implements FavoritosRepository{
     @Override
     public List<Favoritos> show(Integer ID_Favorito) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Boleta where ID_Favorito = :ID_Favorito ")
+            return conn.createQuery("select * from favoritos where ID_Favorito = :ID_Favorito ")
                     .addParameter("ID_Favorito",ID_Favorito)
                     .executeAndFetch(Favoritos.class);
         } catch (Exception e) {

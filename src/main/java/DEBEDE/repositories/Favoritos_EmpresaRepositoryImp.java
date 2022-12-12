@@ -18,7 +18,7 @@ public class Favoritos_EmpresaRepositoryImp implements Favoritos_EmpresaReposito
     @Override
     public Favoritos_Empresa crear(Favoritos_Empresa Favoritos_Empresa){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Rol (ID_Favoritos_Empresa,ID_Favorito,ID_Empresa)" +
+            String sql = "INSERT INTO favoritos_empresa (ID_Favoritos_Empresa,ID_Favorito,ID_Empresa)" +
                     "VALUES (:ID_Favoritos_Empresa,:ID_Favorito ,:ID_Empresa)";
             conn.createQuery(sql, true)
                     .addColumnMapping("ID_Favoritos_Empresa", Favoritos_Empresa.getID_Favoritos_Empresa().toString())
@@ -65,7 +65,7 @@ public class Favoritos_EmpresaRepositoryImp implements Favoritos_EmpresaReposito
     @Override
     public void delete(Integer ID_Favoritos_Empresa) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Rol where ID_Favoritos_Empresa = :ID_Favoritos_Empresa ")
+            conn.createQuery("DELETE from favoritos_empresa where ID_Favoritos_Empresa = :ID_Favoritos_Empresa ")
                     .addParameter("ID_Favoritos_Empresa",ID_Favoritos_Empresa)
                     .executeUpdate();
         }catch (Exception e) {

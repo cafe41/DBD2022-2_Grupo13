@@ -2,7 +2,6 @@ package DEBEDE.services;
 
 import DEBEDE.models.Producto_Categoria;
 import DEBEDE.repositories.Producto_CategoriaRepository;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

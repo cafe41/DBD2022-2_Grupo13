@@ -66,7 +66,7 @@ public class PaisRepositoryImp implements PaisRepository{
     @Override
     public void delete(Integer ID_Pais) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from ID_Pais where ID_Pais = :ID_Pais ")
+            conn.createQuery("DELETE from Pais where ID_Pais = :ID_Pais ")
                     .addParameter("ID_Pais",ID_Pais)
                     .executeUpdate();
         }catch (Exception e) {

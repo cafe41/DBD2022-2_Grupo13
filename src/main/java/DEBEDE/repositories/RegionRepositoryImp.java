@@ -37,7 +37,7 @@ public class RegionRepositoryImp implements RegionRepository{
     @Override
     public List<Region> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Region order by tipo ASC")
+            return conn.createQuery("select * from Region order by id_region ASC")
                     .executeAndFetch(Region.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());

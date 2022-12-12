@@ -69,7 +69,7 @@ public class Usuario_ProductoRepositoryImp implements Usuario_ProductoRepository
     @Override
     public String update(Usuario_Producto Usuario_Producto, Integer ID_Carrito){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Rol_Usuario set fecha_creacion=:fecha_creacion, ID_Usuario=:ID_Usuario, ID_Producto=:ID_Producto WHERE ID_Carrito=:ID_Carrito";
+            String updateSql = "update usuario_producto set fecha_creacion=:fecha_creacion, ID_Usuario=:ID_Usuario, ID_Producto=:ID_Producto WHERE ID_Carrito=:ID_Carrito";
             conn.createQuery(updateSql)
                     .addParameter("ID_Carrito", ID_Carrito)
                     .addParameter("fecha_creacion", Usuario_Producto.getFecha_creacion())

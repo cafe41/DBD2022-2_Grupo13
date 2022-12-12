@@ -2,7 +2,6 @@ package DEBEDE.services;
 
 import DEBEDE.models.Metodo_Pago;
 import DEBEDE.repositories.Metodo_PagoRepository;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

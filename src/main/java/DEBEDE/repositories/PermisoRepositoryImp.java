@@ -18,7 +18,7 @@ public class PermisoRepositoryImp implements PermisoRepository{
     public Permiso crear(Permiso Permiso){
         try(Connection conn = sql2o.open()){
             String sql = "INSERT INTO Permiso (ID_Permiso, Descripcion_Permiso)" +
-                    "VALUES (:ID_Permiso, :Descripcion_Permiso";
+                    "VALUES (:ID_Permiso, :Descripcion_Permiso)";
             conn.createQuery(sql, true)
                     .addColumnMapping("ID_Permiso", Permiso.getID_Permiso().toString())
                     .addParameter("Descripcion_Permiso", Permiso.getDescripcion_Permiso())
@@ -67,7 +67,7 @@ public class PermisoRepositoryImp implements PermisoRepository{
     @Override
     public String update(Permiso Permiso, Integer ID_Permiso){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Boleta set Descripcion_Permiso=:Descripcion_Permiso WHERE ID_Permiso=:ID_Permiso";
+            String updateSql = "update permiso set Descripcion_Permiso=:Descripcion_Permiso WHERE ID_Permiso=:ID_Permiso";
             conn.createQuery(updateSql)
                     .addParameter("ID_Permiso", ID_Permiso)
                     .addParameter("Descripcion_Permiso", Permiso.getDescripcion_Permiso())

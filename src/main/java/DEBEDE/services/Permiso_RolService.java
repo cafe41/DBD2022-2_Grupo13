@@ -2,7 +2,6 @@ package DEBEDE.services;
 
 import DEBEDE.models.Permiso_Rol;
 import DEBEDE.repositories.Permiso_RolRepository;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

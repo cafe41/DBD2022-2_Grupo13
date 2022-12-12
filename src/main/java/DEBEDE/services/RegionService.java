@@ -2,7 +2,6 @@ package DEBEDE.services;
 
 import DEBEDE.models.Region;
 import DEBEDE.repositories.RegionRepository;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

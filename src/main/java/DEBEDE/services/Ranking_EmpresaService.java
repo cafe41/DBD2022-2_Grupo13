@@ -2,7 +2,6 @@ package DEBEDE.services;
 
 import DEBEDE.models.Ranking_Empresa;
 import DEBEDE.repositories.Ranking_EmpresaRepository;
-import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

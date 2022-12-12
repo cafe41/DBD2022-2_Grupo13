@@ -18,7 +18,7 @@ public class Permiso_RolRepositoryImp implements Permiso_RolRepository{
     @Override
     public Permiso_Rol crear(Permiso_Rol Permiso_Rol){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Rol (ID_Permiso_Rol,ID_Permiso,ID_rol)" +
+            String sql = "INSERT INTO permiso_rol (ID_Permiso_Rol,ID_Permiso,ID_rol)" +
                     "VALUES (:ID_Permiso_Rol,:ID_Permiso ,:ID_rol)";
             conn.createQuery(sql, true)
                     .addColumnMapping("ID_Permiso_Rol", Permiso_Rol.getID_Permiso_Rol().toString())
@@ -38,7 +38,7 @@ public class Permiso_RolRepositoryImp implements Permiso_RolRepository{
     @Override
     public List<Permiso_Rol> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Permiso_Rol order by tipo ASC")
+            return conn.createQuery("select * from Permiso_Rol order by id_permiso ASC")
                     .executeAndFetch(Permiso_Rol.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());

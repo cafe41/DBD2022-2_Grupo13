@@ -18,7 +18,7 @@ public class Empresa_CategoriaRepositoryImp implements Empresa_CategoriaReposito
     @Override
     public Empresa_Categoria crear(Empresa_Categoria Empresa_Categoria){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Rol (ID_Empresa_Categoria,ID_Empresa,ID_Categoria)" +
+            String sql = "INSERT INTO empresa_categoria (ID_Empresa_Categoria,ID_Empresa,ID_Categoria)" +
                     "VALUES (:ID_Empresa_Categoria,:ID_Empresa ,:ID_Categoria)";
             conn.createQuery(sql, true)
                     .addColumnMapping("ID_Empresa_Categoria", Empresa_Categoria.getID_Empresa_Categoria().toString())
@@ -38,7 +38,7 @@ public class Empresa_CategoriaRepositoryImp implements Empresa_CategoriaReposito
     @Override
     public List<Empresa_Categoria> getAll() {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Rol order by ID_Empresa_Categoria ASC")
+            return conn.createQuery("select * from empresa_categoria order by ID_Empresa_Categoria ASC")
                     .executeAndFetch(Empresa_Categoria.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -50,7 +50,7 @@ public class Empresa_CategoriaRepositoryImp implements Empresa_CategoriaReposito
     @Override
     public List<Empresa_Categoria> show(Integer ID_Empresa_Categoria) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Rol where ID_Empresa_Categoria = :ID_Empresa_Categoria ")
+            return conn.createQuery("select * from empresa_categoria where ID_Empresa_Categoria = :ID_Empresa_Categoria ")
                     .addParameter("ID_Empresa_Categoria",ID_Empresa_Categoria)
                     .executeAndFetch(Empresa_Categoria.class);
         } catch (Exception e) {
@@ -65,7 +65,7 @@ public class Empresa_CategoriaRepositoryImp implements Empresa_CategoriaReposito
     @Override
     public void delete(Integer ID_Empresa_Categoria) {
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Rol where ID_Empresa_Categoria = :ID_Empresa_Categoria ")
+            conn.createQuery("DELETE from empresa_categoria where ID_Empresa_Categoria = :ID_Empresa_Categoria ")
                     .addParameter("ID_Empresa_Categoria",ID_Empresa_Categoria)
                     .executeUpdate();
         }catch (Exception e) {
@@ -78,7 +78,7 @@ public class Empresa_CategoriaRepositoryImp implements Empresa_CategoriaReposito
     @Override
     public String update(Empresa_Categoria Empresa_Categoria, Integer ID_Empresa_Categoria){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Rol set ID_Empresa=:ID_Empresa, ID_Empresa=:ID_Categoria WHERE ID_Empresa_Categoria=:ID_Empresa_Categoria";
+            String updateSql = "update empresa_categoria set ID_Empresa=:ID_Empresa, ID_Empresa=:ID_Categoria WHERE ID_Empresa_Categoria=:ID_Empresa_Categoria";
             conn.createQuery(updateSql)
                     .addParameter("ID_Empresa_Categoria", ID_Empresa_Categoria)
                     .addParameter("ID_Empresa", Empresa_Categoria.getID_Empresa())

@@ -45,7 +45,7 @@ public class Producto_CategoriaRepositoryImp implements Producto_CategoriaReposi
     @Override
     public List<Producto_Categoria> show(Integer ID_Producto_Categoria) {
         try(Connection conn = sql2o.open()){
-            return conn.createQuery("select * from Boleta where ID_Producto_Categoria = :ID_Producto_Categoria ")
+            return conn.createQuery("select * from producto_categoria where ID_Producto_Categoria = :ID_Producto_Categoria ")
                     .addParameter("ID_Producto_Categoria",ID_Producto_Categoria)
                     .executeAndFetch(Producto_Categoria.class);
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public class Producto_CategoriaRepositoryImp implements Producto_CategoriaReposi
     @Override
     public String update(Producto_Categoria Producto_Categoria, Integer ID_Producto_Categoria){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Producto_Categoria set tipo_tarjeta=:tipo_tarjeta, numero_tarjeta=:numero_tarjeta, monto=:monto, fecha=:fecha , id_usuario=:id_usuario ,id_empresa=:id_empresa WHERE ID_Producto_Categoria=:ID_Producto_Categoria";
+            String updateSql = "update Producto_Categoria set ID_Producto_Categoria=:ID_Producto_Categoria, ID_Producto=:ID_Producto, ID_Categoria=:ID_Categoria WHERE ID_Producto_Categoria=:ID_Producto_Categoria";
             conn.createQuery(updateSql)
                     .addParameter("ID_Producto_Categoria", ID_Producto_Categoria)
                     .addParameter("ID_Producto", Producto_Categoria.getID_Producto())

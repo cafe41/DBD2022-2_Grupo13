@@ -16,7 +16,7 @@ public class ProductoRepositoryImp implements ProductoRepository{
     @Override
     public Producto crear(Producto producto){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO producto (ID_Producto,Nombre_Producto, Stock,Precio ,EsExplicito, Descripcion, Link_pagina, Imagen_producto, ID_Empresa)" +
+            String sql = "INSERT INTO producto (ID_Producto,Nombre_Producto, Stock, Precio, EsExplicito, Descripcion, Link_pagina, Imagen_producto, ID_Empresa)" +
             "VALUES (:ID_Producto, :Nombre_Producto, :Stock, :Precio ,:EsExplicito, :Descripcion, :Link_pagina, :Imagen_producto, :ID_Empresa)";
             conn.createQuery(sql, true)
                 .addParameter("ID_Producto", producto.getID_Producto())
