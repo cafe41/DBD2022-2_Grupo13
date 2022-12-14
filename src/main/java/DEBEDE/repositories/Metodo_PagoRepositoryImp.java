@@ -17,14 +17,13 @@ public class Metodo_PagoRepositoryImp implements Metodo_PagoRepository{
     @Override
     public Metodo_Pago crear(Metodo_Pago Metodo_Pago){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Metodo_Pago (ID_Metodo_Pago,Tipo_Tarjeta,Numero_Tarjeta, Fecha, ID_Usuario)" +
-                    "VALUES (:ID_Metodo_Pago, :Tipo_Tarjeta, :Numero_Tarjeta, :Fecha, :ID_Usuario)";
+            String sql = "INSERT INTO Metodo_Pago (Tipo_Tarjeta,Numero_Tarjeta, Fecha, ID_Usuario)" +
+                    "VALUES (:Tipo_Tarjeta, :Numero_Tarjeta, :Fecha, :ID_Usuario)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Metodo_Pago", Metodo_Pago.getID_Metodo_Pago().toString())
                     .addParameter("Tipo_Tarjeta", Metodo_Pago.getTipo_Tarjeta())
                     .addParameter("numero_tarjeta", Metodo_Pago.getNumero_Tarjeta())
-                    .addColumnMapping("Fecha", Metodo_Pago.getFecha().toString())
-                    .addColumnMapping("ID_Usuario", Metodo_Pago.getID_Usuario().toString())
+                    .addParameter("Fecha", Metodo_Pago.getFecha())
+                    .addParameter("ID_Usuario", Metodo_Pago.getID_Usuario())
                     .executeUpdate();
             return Metodo_Pago;
         } catch (Exception e) {

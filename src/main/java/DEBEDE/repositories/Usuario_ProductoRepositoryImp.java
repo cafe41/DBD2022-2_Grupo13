@@ -17,13 +17,12 @@ public class Usuario_ProductoRepositoryImp implements Usuario_ProductoRepository
     @Override
     public Usuario_Producto crear(Usuario_Producto Usuario_Producto){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Usuario_Producto (ID_Carrito, fecha_creacion, ID_Usuario, ID_Producto)" +
-                    "VALUES (:ID_Carrito, :fecha_creacion, :ID_Usuario, :ID_Producto)";
+            String sql = "INSERT INTO Usuario_Producto (fecha_creacion, ID_Usuario, ID_Producto)" +
+                    "VALUES (:fecha_creacion, :ID_Usuario, :ID_Producto)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Carrito", Usuario_Producto.getID_Carrito().toString())
                     .addParameter("fecha_creacion", Usuario_Producto.getFecha_creacion())
-                    .addColumnMapping("ID_Usuario", Usuario_Producto.getID_Usuario().toString())
-                    .addColumnMapping("ID_Producto", Usuario_Producto.getID_Usuario().toString())
+                    .addParameter("ID_Usuario", Usuario_Producto.getID_Usuario())
+                    .addParameter("ID_Producto", Usuario_Producto.getID_Usuario())
                     .executeUpdate();
             return Usuario_Producto;
         } catch (Exception e) {

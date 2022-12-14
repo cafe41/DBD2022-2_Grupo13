@@ -16,19 +16,18 @@ public class ProductoRepositoryImp implements ProductoRepository{
     @Override
     public Producto crear(Producto producto){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO producto (ID_Producto,Nombre_Producto, Stock, Precio, EsExplicito, Descripcion, Link_pagina, Imagen_producto, ID_Empresa)" +
-            "VALUES (:ID_Producto, :Nombre_Producto, :Stock, :Precio ,:EsExplicito, :Descripcion, :Link_pagina, :Imagen_producto, :ID_Empresa)";
+            String sql = "INSERT INTO producto (Nombre_Producto, Stock, Precio, EsExplicito, Descripcion, Link_pagina, Imagen_producto, ID_Empresa)" +
+            "VALUES (:Nombre_Producto, :Stock, :Precio ,:EsExplicito, :Descripcion, :Link_pagina, :Imagen_producto, :ID_Empresa)";
             conn.createQuery(sql, true)
-                .addParameter("ID_Producto", producto.getID_Producto())
-                .addParameter("Nombre_Producto", producto.getNombre_Producto())
-                .addParameter("Stock", producto.getStock())
+                    .addParameter("Nombre_Producto", producto.getNombre_Producto())
+                    .addParameter("Stock", producto.getStock())
                     .addParameter("Precio", producto.getPrecio())
-                .addParameter("EsExplicito", producto.getEsExplicito())
-                .addParameter("Descripcion", producto.getDescripcion())
-                .addParameter("Link_pagina", producto.getLink_pagina())
-                .addParameter("Imagen_producto", producto.getImagen_producto())
-                .addParameter("ID_Empresa", producto.getID_Empresa())
-                .executeUpdate();
+                    .addParameter("EsExplicito", producto.getEsExplicito())
+                    .addParameter("Descripcion", producto.getDescripcion())
+                    .addParameter("Link_pagina", producto.getLink_pagina())
+                    .addParameter("Imagen_producto", producto.getImagen_producto())
+                    .addParameter("ID_Empresa", producto.getID_Empresa())
+                    .executeUpdate();
                 return producto;
         } catch (Exception e) {
             System.out.println(e.getMessage());

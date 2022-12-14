@@ -16,16 +16,15 @@ public class UsuarioRepositoryImp implements UsuarioRepository{
     @Override
     public Usuario crear(Usuario Usuario){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Usuario (ID_Usuario,Nombre_Usuario,Nombre,Fecha_Nacimiento,Contrasena,Correo, ID_Pais)" +
-                    "VALUES (:ID_Usuario,:Nombre_Usuario,:Nombre,:Fecha_Nacimiento,:Contrasena,:Correo, :ID_Pais)";
+            String sql = "INSERT INTO Usuario (Nombre_Usuario,Nombre,Fecha_Nacimiento,Contrasena,Correo, ID_Pais)" +
+                    "VALUES (:Nombre_Usuario,:Nombre,:Fecha_Nacimiento,:Contrasena,:Correo, :ID_Pais)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Usuario", Usuario.getID_Usuario().toString())
                     .addParameter("Nombre_Usuario", Usuario.getNombre_Usuario())
                     .addParameter("Nombre", Usuario.getNombre())
                     .addParameter("Fecha_Nacimiento", Usuario.getFecha_Nacimiento())
                     .addParameter("Contrasena", Usuario.getContrasena())
                     .addParameter("Correo", Usuario.getCorreo())
-                    .addColumnMapping("ID_Pago", Usuario.getID_Pais().toString())
+                    .addParameter("ID_Pais", Usuario.getID_Pais())
                     .executeUpdate();
             return Usuario;
         } catch (Exception e) {

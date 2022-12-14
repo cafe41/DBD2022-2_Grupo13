@@ -17,12 +17,10 @@ public class FavoritosRepositoryImp implements FavoritosRepository{
     @Override
     public Favoritos crear(Favoritos Favoritos){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Favoritos (ID_Favorito,ID_Usuario)" +
-                    "VALUES (:ID_Favorito, :ID_Usuario)";
+            String sql = "INSERT INTO Favoritos (ID_Usuario)" +
+                    "VALUES (:ID_Usuario)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Favorito", Favoritos.getID_Favorito().toString())
-                    .addColumnMapping("ID_Usuario", Favoritos.getID_Usuario().toString())
-
+                    .addParameter("ID_Usuario", Favoritos.getID_Usuario())
                     .executeUpdate();
             return Favoritos;
         } catch (Exception e) {

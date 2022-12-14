@@ -18,12 +18,11 @@ public class Empresa_CategoriaRepositoryImp implements Empresa_CategoriaReposito
     @Override
     public Empresa_Categoria crear(Empresa_Categoria Empresa_Categoria){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO empresa_categoria (ID_Empresa_Categoria,ID_Empresa,ID_Categoria)" +
-                    "VALUES (:ID_Empresa_Categoria,:ID_Empresa ,:ID_Categoria)";
+            String sql = "INSERT INTO empresa_categoria (ID_Empresa,ID_Categoria)" +
+                    "VALUES (:ID_Empresa ,:ID_Categoria)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Empresa_Categoria", Empresa_Categoria.getID_Empresa_Categoria().toString())
-                    .addColumnMapping("ID_Empresa", Empresa_Categoria.getID_Empresa().toString())
-                    .addColumnMapping("ID_Categoria", Empresa_Categoria.getID_Categoria().toString())
+                    .addParameter("ID_Empresa", Empresa_Categoria.getID_Empresa())
+                    .addParameter("ID_Categoria", Empresa_Categoria.getID_Categoria())
                     .executeUpdate();
             return Empresa_Categoria;
         } catch (Exception e) {

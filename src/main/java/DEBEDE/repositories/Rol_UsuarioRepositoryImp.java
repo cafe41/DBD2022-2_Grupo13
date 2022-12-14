@@ -17,12 +17,11 @@ public class Rol_UsuarioRepositoryImp implements Rol_UsuarioRepository{
     @Override
     public Rol_Usuario crear(Rol_Usuario Rol_Usuario){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Rol_Usuario (ID_Rol_Usuario, ID_Rol, ID_Usuario)" +
-                    "VALUES (:ID_Rol_Usuario, :ID_Rol, :ID_Usuario)";
+            String sql = "INSERT INTO Rol_Usuario (ID_Rol, ID_Usuario)" +
+                    "VALUES (:ID_Rol, :ID_Usuario)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Rol_Usuario", Rol_Usuario.getID_Rol_Usuario().toString())
-                    .addColumnMapping("ID_Rol", Rol_Usuario.getID_Rol().toString())
-                    .addColumnMapping("id_usuario", Rol_Usuario.getID_Usuario().toString())
+                    .addParameter("ID_Rol", Rol_Usuario.getID_Rol())
+                    .addParameter("id_usuario", Rol_Usuario.getID_Usuario())
                     .executeUpdate();
             return Rol_Usuario;
         } catch (Exception e) {

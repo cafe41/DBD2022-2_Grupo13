@@ -18,13 +18,12 @@ public class PaisRepositoryImp implements PaisRepository{
     @Override
     public Pais crear(Pais Pais){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Pais (ID_Pais,nombre_pais,idioma,ID_Region)" +
-                    "VALUES (:ID_Pais,:nombre_pais ,:idioma,:ID_Region)";
+            String sql = "INSERT INTO Pais (nombre_pais,idioma,ID_Region)" +
+                    "VALUES (:nombre_pais ,:idioma,:ID_Region)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Pais", Pais.getID_Pais().toString())
-                    .addParameter("tipo", Pais.getNombre_pais())
-                    .addParameter("descripcion", Pais.getIdioma())
-                    .addColumnMapping("ID_Region", Pais.getID_Region().toString())
+                    .addParameter("nombre_pais", Pais.getNombre_pais())
+                    .addParameter("idioma", Pais.getIdioma())
+                    .addParameter("ID_Region", Pais.getID_Region())
                     .executeUpdate();
             return Pais;
         } catch (Exception e) {

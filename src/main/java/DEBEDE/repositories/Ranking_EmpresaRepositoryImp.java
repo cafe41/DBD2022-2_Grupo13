@@ -17,10 +17,9 @@ public class Ranking_EmpresaRepositoryImp implements Ranking_EmpresaRepository{
     @Override
     public Ranking_Empresa crear(Ranking_Empresa Ranking_Empresa){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Ranking_Empresa (ID_Ranking,cantidad_ventas,ranking)" +
-                    "VALUES (:Ranking_Empresa, :cantidad_ventas, :ranking)";
+            String sql = "INSERT INTO Ranking_Empresa (cantidad_ventas,ranking)" +
+                    "VALUES (:cantidad_ventas, :ranking)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Ranking", Ranking_Empresa.getID_Ranking().toString())
                     .addParameter("cantidad_ventas", Ranking_Empresa.getCantidad_ventas())
                     .addParameter("ranking", Ranking_Empresa.getRanking())
                     .executeUpdate();

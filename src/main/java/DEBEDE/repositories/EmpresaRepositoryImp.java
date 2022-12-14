@@ -17,13 +17,12 @@ public class EmpresaRepositoryImp implements EmpresaRepository{
     @Override
     public Empresa crear(Empresa Empresa){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Empresa (id_empresa,nombre_empresa,es_explicita,id_ranking)" +
-                    "VALUES (:id_empresa,:nombre_empresa ,:es_explicita, :id_ranking)";
+            String sql = "INSERT INTO Empresa (nombre_empresa,es_explicita,id_ranking)" +
+                    "VALUES (:nombre_empresa ,:es_explicita, :id_ranking)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("id_empresa", Empresa.getId_empresa().toString())
                     .addParameter("nombre_empresa", Empresa.getNombre_empresa())
                     .addParameter("es_explicita", Empresa.getEs_explicita())
-                    .addColumnMapping("id_ranking", Empresa.getId_ranking().toString())
+                    .addParameter("id_ranking", Empresa.getId_ranking())
                     .executeUpdate();
             return Empresa;
         } catch (Exception e) {

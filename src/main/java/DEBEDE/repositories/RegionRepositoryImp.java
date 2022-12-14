@@ -18,10 +18,9 @@ public class RegionRepositoryImp implements RegionRepository{
     @Override
     public Region crear(Region Region){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Region (ID_Region,nombre_region)" +
-                    "VALUES (:ID_Region,:nombre_region)";
+            String sql = "INSERT INTO Region (nombre_region)" +
+                    "VALUES (:nombre_region)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Region", Region.getID_Region().toString())
                     .addParameter("nombre_region", Region.getNombre_region())
                     .executeUpdate();
             return Region;

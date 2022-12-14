@@ -18,12 +18,11 @@ public class Permiso_RolRepositoryImp implements Permiso_RolRepository{
     @Override
     public Permiso_Rol crear(Permiso_Rol Permiso_Rol){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO permiso_rol (ID_Permiso_Rol,ID_Permiso,ID_rol)" +
-                    "VALUES (:ID_Permiso_Rol,:ID_Permiso ,:ID_rol)";
+            String sql = "INSERT INTO permiso_rol (ID_Permiso,ID_rol)" +
+                    "VALUES (:ID_Permiso ,:ID_rol)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Permiso_Rol", Permiso_Rol.getID_Permiso_Rol().toString())
-                    .addColumnMapping("ID_Permiso", Permiso_Rol.getID_Permiso().toString())
-                    .addColumnMapping("ID_rol", Permiso_Rol.getID_rol().toString())
+                    .addParameter("ID_Permiso", Permiso_Rol.getID_Permiso())
+                    .addParameter("ID_rol", Permiso_Rol.getID_rol())
                     .executeUpdate();
             return Permiso_Rol;
         } catch (Exception e) {

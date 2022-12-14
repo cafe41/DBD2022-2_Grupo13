@@ -17,14 +17,13 @@ public class ValoracionRepositoryImp implements ValoracionRepository{
     @Override
     public Valoracion crear(Valoracion Valoracion){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Valoracion (ID_Valoracion,cantidad_estrellas,desc_valoracion,ID_Usuario,ID_Empresa)" +
-                    "VALUES (:ID_Valoracion, :cantidad_estrellas, :desc_valoracion, :ID_Usuario, :ID_Empresa)";
+            String sql = "INSERT INTO Valoracion (cantidad_estrellas,desc_valoracion,ID_Usuario,ID_Empresa)" +
+                    "VALUES (:cantidad_estrellas, :desc_valoracion, :ID_Usuario, :ID_Empresa)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Valoracion", Valoracion.getID_Valoracion().toString())
                     .addParameter("cantidad_estrellas", Valoracion.getCantidad_estrellas())
                     .addParameter("desc_valoracion", Valoracion.getDesc_valoracion())
-                    .addColumnMapping("ID_Usuario", Valoracion.getID_Usuario().toString())
-                    .addColumnMapping("ID_Empresa", Valoracion.getID_Empresa().toString())
+                    .addParameter("ID_Usuario", Valoracion.getID_Usuario())
+                    .addParameter("ID_Empresa", Valoracion.getID_Empresa())
                     .executeUpdate();
             return Valoracion;
         } catch (Exception e) {

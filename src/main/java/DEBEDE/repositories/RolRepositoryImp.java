@@ -17,10 +17,9 @@ public class RolRepositoryImp implements RolRepository{
     @Override
     public Rol crear(Rol Rol){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Rol (id_rol,tipo,descripcion)" +
-                    "VALUES (id_rol,:tipo ,:descripcion)";
+            String sql = "INSERT INTO Rol (tipo,descripcion)" +
+                    "VALUES (:tipo ,:descripcion)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("id_rol", Rol.getID_Rol().toString())
                     .addParameter("tipo", Rol.getTipo())
                     .addParameter("descripcion", Rol.getDescripcion())
                     .executeUpdate();

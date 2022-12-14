@@ -18,12 +18,11 @@ public class Pais_EmpresaRepositoryImp implements Pais_EmpresaRepository{
     @Override
     public Pais_Empresa crear(Pais_Empresa Pais_Empresa){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Pais_Empresa (ID_Pais_Empresa,ID_Pais,ID_Empresa)" +
-                    "VALUES (:ID_Pais_Empresa,:ID_Pais ,:ID_Empresa)";
+            String sql = "INSERT INTO Pais_Empresa (ID_Pais,ID_Empresa)" +
+                    "VALUES (:ID_Pais ,:ID_Empresa)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Pais_Empresa", Pais_Empresa.getID_Pais_Empresa().toString())
-                    .addColumnMapping("ID_Pais", Pais_Empresa.getID_Pais().toString())
-                    .addColumnMapping("ID_Empresa", Pais_Empresa.getID_Empresa().toString())
+                    .addParameter("ID_Pais", Pais_Empresa.getID_Pais())
+                    .addParameter("ID_Empresa", Pais_Empresa.getID_Empresa())
                     .executeUpdate();
             return Pais_Empresa;
         } catch (Exception e) {

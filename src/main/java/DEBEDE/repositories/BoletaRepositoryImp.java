@@ -16,16 +16,15 @@ public class BoletaRepositoryImp implements BoletaRepository{
     @Override
     public Boleta crear(Boleta Boleta){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Boleta (id_boleta,tipo_tarjeta,numero_tarjeta,monto,fecha,id_usuario,id_empresa)" +
-                    "VALUES (:id_boleta, :tipo_tarjeta, :numero_tarjeta, :monto, :fecha, :id_usuario, :id_empresa)";
+            String sql = "INSERT INTO Boleta (tipo_tarjeta,numero_tarjeta,monto,fecha,id_usuario,id_empresa)" +
+                    "VALUES (:tipo_tarjeta, :numero_tarjeta, :monto, :fecha, :id_usuario, :id_empresa)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("id_boleta", Boleta.getId_boleta().toString())
                     .addParameter("tipo_tarjeta", Boleta.getTipo_tarjeta())
                     .addParameter("numero_tarjeta", Boleta.getNumero_tarjeta())
                     .addParameter("monto", Boleta.getMonto())
-                    .addColumnMapping("fecha", Boleta.getFecha().toString())
-                    .addColumnMapping("id_usuario", Boleta.getId_usuario().toString())
-                    .addColumnMapping("id_empresa", Boleta.getId_empresa().toString())
+                    .addParameter("fecha", Boleta.getFecha())
+                    .addParameter("id_usuario", Boleta.getId_usuario())
+                    .addParameter("id_empresa", Boleta.getId_empresa())
                     .executeUpdate();
             return Boleta;
         } catch (Exception e) {

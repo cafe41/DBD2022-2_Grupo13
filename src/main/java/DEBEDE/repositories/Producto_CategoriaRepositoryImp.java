@@ -17,12 +17,11 @@ public class Producto_CategoriaRepositoryImp implements Producto_CategoriaReposi
     @Override
     public Producto_Categoria crear(Producto_Categoria Producto_Categoria){
         try(Connection conn = sql2o.open()){
-            String sql = "INSERT INTO Producto_Categoria (ID_Producto_Categoria,ID_Producto,ID_Categoria)" +
-                    "VALUES (:ID_Producto_Categoria, :ID_Producto, :ID_Categoria)";
+            String sql = "INSERT INTO Producto_Categoria (ID_Producto,ID_Categoria)" +
+                    "VALUES (:ID_Producto, :ID_Categoria)";
             conn.createQuery(sql, true)
-                    .addColumnMapping("ID_Producto_Categoria", Producto_Categoria.getID_Producto_Categoria().toString())
-                    .addColumnMapping("ID_Producto", Producto_Categoria.getID_Producto().toString())
-                    .addColumnMapping("ID_Categoria", Producto_Categoria.getID_Categoria().toString())
+                    .addParameter("ID_Producto", Producto_Categoria.getID_Producto())
+                    .addParameter("ID_Categoria", Producto_Categoria.getID_Categoria())
                     .executeUpdate();
             return Producto_Categoria;
         } catch (Exception e) {
