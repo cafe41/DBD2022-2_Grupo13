@@ -4,6 +4,7 @@ import DEBEDE.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
+import org.sql2o.Query;
 import org.sql2o.Sql2o;
 import java.util.List;
 
@@ -59,11 +60,14 @@ public class UsuarioRepositoryImp implements UsuarioRepository{
     @Override
     public Boolean userExists(String nombre_Usuario, String contrasena){
         try(Connection conn = sql2o.open()){
-            conn.createQuery("select * from Usuario where nombre_Usuario = :nombre_Usuario AND  contrasena = :contrasena")
+            List c = conn.createQuery("select * from Usuario where nombre_Usuario = :nombre_Usuario AND  contrasena = :contrasena")
                     .addParameter("nombre_Usuario",nombre_Usuario)
                     .addParameter("contrasena",contrasena)
                     .executeAndFetch(Usuario.class);
-            return Boolean.TRUE;
+            if (c.size() != 0) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return Boolean.FALSE;
