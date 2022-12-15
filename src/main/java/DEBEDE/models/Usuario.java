@@ -58,23 +58,23 @@ public class Usuario {
     }
 
     public void setNombre_Usuario(String nombre_Usuario) {
-        Nombre_Usuario = nombre_Usuario;
+        this.Nombre_Usuario = nombre_Usuario;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.Nombre = nombre;
     }
 
     public void setFecha_Nacimiento(Date fecha_Nacimiento) {
-        Fecha_Nacimiento = fecha_Nacimiento;
+        this.Fecha_Nacimiento = fecha_Nacimiento;
     }
 
     public void setContrasena(String contrasena) {
-        Contrasena = contrasena;
+        this.Contrasena = contrasena;
     }
 
     public void setCorreo(String correo) {
-        Correo = correo;
+        this.Correo = correo;
     }
 
     public void setID_Pais(Integer ID_Pais) {
